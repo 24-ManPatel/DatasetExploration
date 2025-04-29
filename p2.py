@@ -41,13 +41,9 @@ df['DAY_OF_WEEK'] = df['DATE'].dt.dayofweek
 df['WEEKDAY'] = df['DATE'].dt.day_name()
 df['YEAR'] = df['DATE'].dt.year
 
-# Convert arrest to boolean if it's not already
 if df['ARREST'].dtype != bool:
     df['ARREST'] = df['ARREST'].map({'true': True, 'false': False, 'TRUE': True, 'FALSE': False})
 
-# --------------------------
-# EXPLORATORY DATA ANALYSIS
-# --------------------------
 
 # 1. Crime Types Distribution
 plt.figure(figsize=(12, 8))
@@ -181,9 +177,9 @@ if 'LATITUDE' in df.columns and 'LONGITUDE' in df.columns and not df[['LATITUDE'
 else:
     print("Skipping map creation - latitude or longitude data is missing.")
 
-# -----------------------------
+
 # MODEL 1: RANDOM FOREST FOR ARREST PREDICTION
-# -----------------------------
+
 print("\n--- MODEL 1: RANDOM FOREST FOR ARREST PREDICTION ---")
 
 # Choose relevant features for prediction
@@ -244,7 +240,7 @@ else:
     y_pred = rf_pipeline.predict(X_test)
     y_pred_proba = rf_pipeline.predict_proba(X_test)[:, 1]
     
-    # Evaluate the model
+    # Evaluate 
     print("\nRandom Forest Model Evaluation:")
     accuracy = accuracy_score(y_test, y_pred)
     precision = precision_score(y_test, y_pred)
@@ -442,9 +438,9 @@ else:
         plt.savefig('arrest_rate_by_location.png')
         print("Saved arrest rate by location plot.")
 
-# -----------------------------
+
 # MODEL 2: K-MEANS CLUSTERING FOR CRIME HOTSPOT IDENTIFICATION
-# -----------------------------
+
 print("\n--- MODEL 2: K-MEANS CLUSTERING FOR CRIME HOTSPOT IDENTIFICATION ---")
 
 # Check if we have geographic coordinates
@@ -519,7 +515,7 @@ if 'LATITUDE' in df.columns and 'LONGITUDE' in df.columns and not df[['LATITUDE'
         zoom_start=11
     )
     
-    # Define colors for clusters
+    #colors for clusters
     colors = ['red', 'blue', 'green', 'purple', 'orange', 'darkred', 'darkblue', 
               'darkgreen', 'cadetblue', 'lightred', 'beige', 'pink']
     
@@ -531,7 +527,7 @@ if 'LATITUDE' in df.columns and 'LONGITUDE' in df.columns and not df[['LATITUDE'
             overlay=True
         ).add_to(cluster_map)
         
-        # Add points to this cluster (max 1000 per cluster to avoid browser issues)
+        # Add points to this cluster
         for idx, row in cluster_data.sample(min(1000, len(cluster_data))).iterrows():
             folium.CircleMarker(
                 location=[row['LATITUDE'], row['LONGITUDE']],
@@ -635,7 +631,7 @@ else:
 
 print("\nAnalysis completed successfully!")
 
-# Create a function that combines both models for comprehensive crime analysis
+# function that combines both models for comprehensive crime analysis
 def analyze_new_crime(crime_data):
     """
     Analyze a new crime incident using both models
