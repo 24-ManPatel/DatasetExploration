@@ -7,6 +7,9 @@ There are mainly 2 model built on htis code :
 Folium and Matplotlib are used in the code to visulize the outputs and clustering.
 HTML files are generated once you run the code !!
 
+There are 2 python files in the Repo , if you want a smaller version of code use P1.py or else use P2.py for detail exploration of data and more better plots.
+
+
 ## Installations Required
 
 ```bash
