@@ -7,8 +7,7 @@ There are mainly 2 model built on htis code :
 Folium and Matplotlib are used in the code to visulize the outputs and clustering.
 HTML files are generated once you run the code !!
 
-##Installations Required
-run the command down below to download the libraries 
+## Installations Required
 
 ```bash
 pip install pandas numpy seaborn sklearn folium scipy
