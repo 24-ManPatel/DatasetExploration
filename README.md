@@ -1,16 +1,27 @@
-This is the simple code to get insights of Chicago Crime Dataset , where mainly python is used to train the models by using library Sk-learn .
-There are mainly 2 model built on this code :
-  1. Random FOrest to predict the possibility of arrest if any crime will happen in whihc area and what type of crime it was 
-  2. K - Means Algorith based on silhoutte score to know the cluster of crime in areas where Police needs to expand their patrolling and surveillance.
+# Chicago Crime Data Analysis  
 
+This project provides insights into the **Chicago Crime Dataset** using Python and machine learning models built with **scikit-learn**.  
 
-Folium and Matplotlib are used in the code to visulize the outputs and clustering.
-HTML files are generated once you run the code !!
+## Models Implemented  
+1. **Random Forest Classifier**  
+   - Predicts the likelihood of an arrest for a given crime.  
+   - Considers factors such as the crime type and the area where it occurred.  
 
-There are 2 python files in the Repo , if you want a smaller version of code use P1.py or else use P2.py for detail exploration of data and more better plots.
+2. **K-Means Clustering**  
+   - Uses **Silhouette Score** to determine optimal clustering.  
+   - Helps identify high-crime zones where police can strengthen patrolling and surveillance.  
 
+## Visualization  
+- **Folium** and **Matplotlib** are used to generate interactive crime maps and plots.  
+- Running the code will also generate **HTML reports** with visualizations.  
 
-## Installations Required
+## Project Files  
+- `P1.py` → A simplified version of the analysis for quick insights.  
+- `P2.py` → A detailed version with extended exploration, advanced plots, and deeper insights.  
+
+## Installation  
+
+Before running the code, install the required libraries:  
 
 ```bash
-pip install pandas numpy seaborn sklearn folium scipy
+pip install pandas numpy seaborn scikit-learn folium scipy
